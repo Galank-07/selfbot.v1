@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from Oswib.ttypes import IdentityProvider, LoginResultType, LoginRequest, LoginType
+from Galank.ttypes import IdentityProvider, LoginResultType, LoginRequest, LoginType
 from .server import LineServer
 from .session import Session
 from .callback import Callback
