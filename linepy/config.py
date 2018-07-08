@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from Oswib.ttypes import ApplicationType
+from Galank.ttypes import ApplicationType
 import re
 
 class Config(object):
