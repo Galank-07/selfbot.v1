@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from Oswib.ttypes import MediaType
+from Galank.ttypes import MediaType
 
 def loggedIn(func):
     def checkLogin(*args, **kwargs):
