@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from Oswib.ttypes import *
+from Galank.ttypes import *
 
 def loggedIn(func):
     def checkLogin(*args, **kwargs):
