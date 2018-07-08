@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from thrift.transport import THttpClient
 from thrift.protocol import TCompactProtocol
-from Oswib import AuthService, TalkService, ChannelService, CallService, SquareService
+from Galank import AuthService, TalkService, ChannelService, CallService, SquareService
 
 class Session:
 
