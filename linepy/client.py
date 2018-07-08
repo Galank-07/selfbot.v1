@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from Oswib.ttypes import Message
+from Galank.ttypes import Message
 from .auth import LineAuth
 from .models import LineModels
 from .talk import LineTalk
