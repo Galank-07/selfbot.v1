@@ -5,6 +5,13 @@ import json, time, random, tempfile, os, sys
 from gtts import gTTS
 from googletrans import Translator
 
+# THANKS YA BUAT KALIAN
+# KALAU BUKAN SUPPORT DARI KALIAN
+# AKU GAK MUNGKIN KEK GINI/PASTI UDAH VAKUM BOT
+# YANG MAU KEPO,IN[ADD AJA ID LINE DI BAWAH]
+# MAU NANYA SILAHKAN
+# [ADD ME] line.me/ti/p/~@ryp6149l
+
 #client = LineClient(authToken='')
 #client = LineClient() Untuk Login Lewat Qr
 client = LineClient(id='email', passwd='pass')
@@ -14,38 +21,43 @@ client.log("Auth Token : " + str(client.authToken))
 channel = LineChannel(client)
 client.log("Channel Access Token : " + str(channel.channelAccessToken))
 
-helpMessage =""" ─┅═✥WIB SelfBot✥═┅─
-
-  ─┅═✥Command✥═┅─
-
-【➣】 Help
-【➣】 Me
-【➣】 Gc
-【➣】 Yt:
-【➣】 Gn
-【➣】 Getsq
-【➣】 Image:
-【➣】 Say:
-【➣】 Unsend me
-【➣】 Sp
-【➣】 Lc
-【➣】 Sticker
-【➣】 Apakah
-【➣】 Sytr:
-【➣】 Tr:
-【➣】 Spict
-【➣】 Scover
-【➣】 Ats
-【➣】 Ceksider
-【➣】 Offread
-【➣】 Mode:self
-【➣】 Mode:publik
-【➣】 Restart
-
-Python 3 Edition
-New Release
-Versi Percobaan
-ℬℽ : W⃟   I⃟   B⃟   
+helpMessage ="""╭═══════╬╬════════╮
+╞☪ SELFBOT COMMAND
+╰═══════╬╬════════╯
+╭═══════╬╬════════╮
+╞☪ Help
+╞☪ Me
+╞☪ Gc
+╞☪ Youtube:
+╞☪ Gn
+╞☪ Getsq
+╞☪ Image:
+╞☪ Say:
+╞☪ Unsend me
+╞☪ Speed
+╞☪ Lc
+╞☪ Sticker
+╞☪ Apakah
+╞☪ Sytr:
+╞☪ Tr:
+╞☪ Stealpict
+╞☪ Stealcover
+╞☪ Mention
+╞☪ Creator
+╞☪ Add
+╞☪ Groupinfo
+╞☪ Ceksider
+╞☪ Offread
+╞☪ Mode:self
+╞☪ Mode:publik
+╞☪ Restart
+╰═══════╬╬════════╯
+╭═══════╬╬════════╮
+      sᴜᴘᴘᴏʀᴛᴇᴅ ʙʏ :
+      TΣΔM SLΔCҜβΩT
+    OWNER:
+ line.me/ti/p/~@ryp6149l
+╰═══════╬╬════════╯  
 """
 
 poll = LinePoll(client)
@@ -104,6 +116,7 @@ while True:
                             if text.lower() == 'me':
                                 client.sendMessage(receiver, None, contentMetadata={'mid': sender}, contentType=13)
                                 client.tag(receiver, sender)
+                                client.sendText(receiver, 'Jangan sombong mhank')
                             elif ("Gn " in msg.text):
                                  X = client.getGroup(msg.to)
                                  X.name = msg.text.replace("Gn ","")
@@ -177,7 +190,7 @@ while True:
                                     client.sendText(receiver, str(e))
                             elif msg.text in ["Key","Help","Command","Cmd"]:
                                 client.sendText(msg.to,helpMessage)
-                            elif "yt:" in msg.text.lower():
+                            elif "youtube:" in msg.text.lower():
                                 try:
                                     query = msg.text.replace("yt:", "")
                                     query = query.replace(" ", "+")
@@ -229,12 +242,12 @@ while True:
                                     client.sendText(receiver, str(A))
                                 except Exception as e:
                                     client.sendText(receiver, str(e))
-                            elif text.lower() == 'sp':
+                            elif text.lower() == 'speed':
                                 start = time.time()
                                 client.sendText(receiver, "Progress...!")
                                 elapsed_time = time.time() - start
                                 client.sendText(receiver, "%sdetik" % (elapsed_time))
-                            elif 'spic' in text.lower():
+                            elif 'stealpic' in text.lower():
                                 try:
                                     key = eval(msg.contentMetadata["MENTION"])
                                     u = key["MENTIONEES"][0]["M"]
@@ -245,7 +258,7 @@ while True:
                                         client.sendImageWithURL(receiver, 'http://dl.profile.line.naver.jp/'+a)
                                 except Exception as e:
                                     client.sendText(receiver, str(e))
-                            elif 'scover' in text.lower():
+                            elif 'stealcover' in text.lower():
                                 try:
                                     key = eval(msg.contentMetadata["MENTION"])
                                     u = key["MENTIONEES"][0]["M"]
@@ -253,7 +266,7 @@ while True:
                                     client.sendImageWithURL(receiver, a)
                                 except Exception as e:
                                     client.sendText(receiver, str(e))
-                            elif text.lower() == 'ats':
+                            elif text.lower() == 'mention':
                                 group = client.getGroup(receiver)
                                 nama = [contact.mid for contact in group.members]
                                 nm1, nm2, nm3, nm4, nm5, jml = [], [], [], [], [], len(nama)
@@ -374,7 +387,7 @@ while True:
                                         client.sendText(receiver, 'gunakan key sticker angka bukan huruf')
                                 except Exception as e:
                                     client.sendText(receiver, str(e))
-                            elif "yt:" in msg.text.lower():
+                            elif "youtube:" in msg.text.lower():
                                 try:
                                     query = msg.text.replace("yt:", "")
                                     query = query.replace(" ", "+")
@@ -431,7 +444,7 @@ while True:
                                 client.sendText(receiver, "TestSpeed")
                                 elapsed_time = time.time() - start
                                 client.sendText(receiver, "%sdetik" % (elapsed_time))
-                            elif 'spic' in text.lower():
+                            elif 'stealpic' in text.lower():
                                 try:
                                     key = eval(msg.contentMetadata["MENTION"])
                                     u = key["MENTIONEES"][0]["M"]
@@ -442,7 +455,7 @@ while True:
                                         client.sendImageWithURL(receiver, 'http://dl.profile.line.naver.jp/'+a)
                                 except Exception as e:
                                     client.sendText(receiver, str(e))
-                            elif 'scover' in text.lower():
+                            elif 'stealcover' in text.lower():
                                 try:
                                     key = eval(msg.contentMetadata["MENTION"])
                                     u = key["MENTIONEES"][0]["M"]
@@ -452,6 +465,47 @@ while True:
                                     client.sendText(receiver, str(e))
                 except Exception as e:
                     client.log("[SEND_MESSAGE] ERROR : " + str(e))
+                   # client.sendContact(to, sender)
+                        elif text.lower() == 'add':		
+                            client.sendText(receiver,"╠══════════════")
+                            client.sendContact(receiver, 'u78643d09e42a36836a17cc918963a8b7')# GALANK
+                            client.sendContact(receiver, 'u176e7e29cdbad35e8cfd143bf1516ab4')# INNE
+                            client.sendContact(receiver, 'uf8d981e0bc9184560956ced35c4372be')# RIANDO
+                            client.sendText(receiver,"╠══════════════")
+                        elif text.lower() == 'creator':		
+                            client.sendText(receiver,"╠══════════════")
+                            client.sendContact(receiver, 'u78643d09e42a36836a17cc918963a8b7')
+                            client.sendText(receiver,"╠══════════════")
+                       # elif 'kiss1 ' in text.lower():
+                elif text.lower() == 'groupinfo':
+                    group = client.getGroup(receiver)
+                    try:
+                        gCreator = group.creator.displayName
+                    except:
+                        gCreator = "Tidak ditemukan"
+                    if group.invitee is None:
+                        gPending = "0"
+                    else:
+                        gPending = str(len(group.invitee))
+                    if group.preventedJoinByTicket == True:
+                        gQr = "Tertutup"
+                        gTicket = "Tidak ada"
+                    else:
+                        gQr = "Terbuka"
+                        gTicket = "https://line.me/R/ti/g/{}".format(str(client.reissueGroupTicket(group.id)))
+                    path = "http://dl.profile.line-cdn.net/" + group.pictureStatus
+                    ret_ = "╔══[ Group Info ]"
+                    ret_ += "\n╠ Nama Group : {}".format(str(group.name))
+                    ret_ += "\n╠ ID Group : {}".format(group.id)
+                    ret_ += "\n╠ Pembuat : {}".format(str(gCreator))
+                    ret_ += "\n╠ Jumlah Member : {}".format(str(len(group.members)))
+                    ret_ += "\n╠ Jumlah Pending : {}".format(gPending)
+                    ret_ += "\n╠ Group Qr : {}".format(gQr)
+                    ret_ += "\n╠ Group Ticket : {}".format(gTicket)
+                    ret_ += "\n╚══[ Finish ]"
+                    client.sendMessage(receiver, str(ret_))
+                    client.sendImageWithURL(receiver, path)
+                
 #=========================================================================================================================================#
             elif op.type == 55:
                 try:
