@@ -12,10 +12,12 @@ from googletrans import Translator
 # MAU NANYA SILAHKAN
 # [ADD ME] line.me/ti/p/~@ryp6149l
 
-#client = LineClient(authToken='')
-#client = LineClient() Untuk Login Lewat Qr
-client = LineClient(id='email', passwd='pass')
-#client = LineClient(authToken='Token Mu') Untuk Login Via Token
+# LOGIN QR
+#client = LineClient()
+# LOGIN EMAIL DAN PASWORD LINE
+#client = LineClient(id='email', passwd='pass')
+#LOGIN TOKEN
+client = LineClient(authToken='TokenMu SAYANG')
 client.log("Auth Token : " + str(client.authToken))
 
 channel = LineChannel(client)
@@ -43,9 +45,6 @@ helpMessage ="""╭═══════╬╬════════╮
 ╞☪ Stealpict
 ╞☪ Stealcover
 ╞☪ Mention
-╞☪ Creator
-╞☪ Add
-╞☪ Groupinfo
 ╞☪ Ceksider
 ╞☪ Offread
 ╞☪ Mode:self
@@ -465,47 +464,7 @@ while True:
                                     client.sendText(receiver, str(e))
                 except Exception as e:
                     client.log("[SEND_MESSAGE] ERROR : " + str(e))
-                   # client.sendContact(to, sender)
-                        elif text.lower() == 'add':		
-                            client.sendText(receiver,"╠══════════════")
-                            client.sendContact(receiver, 'u78643d09e42a36836a17cc918963a8b7')# GALANK
-                            client.sendContact(receiver, 'u176e7e29cdbad35e8cfd143bf1516ab4')# INNE
-                            client.sendContact(receiver, 'uf8d981e0bc9184560956ced35c4372be')# RIANDO
-                            client.sendText(receiver,"╠══════════════")
-                        elif text.lower() == 'creator':		
-                            client.sendText(receiver,"╠══════════════")
-                            client.sendContact(receiver, 'u78643d09e42a36836a17cc918963a8b7')
-                            client.sendText(receiver,"╠══════════════")
-                       # elif 'kiss1 ' in text.lower():
-                elif text.lower() == 'groupinfo':
-                    group = client.getGroup(receiver)
-                    try:
-                        gCreator = group.creator.displayName
-                    except:
-                        gCreator = "Tidak ditemukan"
-                    if group.invitee is None:
-                        gPending = "0"
-                    else:
-                        gPending = str(len(group.invitee))
-                    if group.preventedJoinByTicket == True:
-                        gQr = "Tertutup"
-                        gTicket = "Tidak ada"
-                    else:
-                        gQr = "Terbuka"
-                        gTicket = "https://line.me/R/ti/g/{}".format(str(client.reissueGroupTicket(group.id)))
-                    path = "http://dl.profile.line-cdn.net/" + group.pictureStatus
-                    ret_ = "╔══[ Group Info ]"
-                    ret_ += "\n╠ Nama Group : {}".format(str(group.name))
-                    ret_ += "\n╠ ID Group : {}".format(group.id)
-                    ret_ += "\n╠ Pembuat : {}".format(str(gCreator))
-                    ret_ += "\n╠ Jumlah Member : {}".format(str(len(group.members)))
-                    ret_ += "\n╠ Jumlah Pending : {}".format(gPending)
-                    ret_ += "\n╠ Group Qr : {}".format(gQr)
-                    ret_ += "\n╠ Group Ticket : {}".format(gTicket)
-                    ret_ += "\n╚══[ Finish ]"
-                    client.sendMessage(receiver, str(ret_))
-                    client.sendImageWithURL(receiver, path)
-                
+                    
 #=========================================================================================================================================#
             elif op.type == 55:
                 try:
